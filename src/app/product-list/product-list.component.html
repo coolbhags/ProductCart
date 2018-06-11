@@ -1,0 +1,170 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Brands</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">My Profile</a>
+    </li>
+  </ul>
+
+ 
+  <div class="navbar-header">
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+  <!-- <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <input type="text" placeholder="Search" [(ngModel)]='listFilter' />
+    </li>
+  </ul> -->
+</nav>
+
+
+
+<div align="center">
+  <h1>{{pageTitle}}</h1>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>
+      Mobile List
+    </h2>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+
+      <div class="col-md-2 offset-md-2">
+        <h4>Filter By : </h4>
+      </div>
+      <div class="col-md-6">
+        <input type="text" [(ngModel)]='listFilter' />
+      </div>
+    </div>
+
+    <!-- <div class="row">
+
+      <div class="col-md-6">
+        <h3>Filtered By : {{listFilter}}</h3>
+      </div>
+    </div> -->
+
+
+    <!-- *************************************** -->
+
+    <div class="container">
+      <div class="row col-md-4" *ngFor="let item of filterProduct">
+        <div class=" card-deck ">
+          <div class="card">
+            <img class="img-responsive" id='zoom' *ngIf='showImg' src={{item.imageUrl}} [title]='item.productName' [style.width.px]=200
+              [style.width.px]=200 [style.margin.px]=20>
+
+            <div class="card-block" align='center'>
+              <span class="card-title">{{item.productName}}</span>
+
+              <div align='center'>
+                <h3>
+                  <p class="card-text">
+                    {{item.price | &nbsp;currency:'INR':true:'1.0-1'}}
+                  </p>
+                </h3>
+
+              </div>
+
+
+              <div align='center'>
+                <p class="card-text">
+                  <app-star [rating]='item.starRating' (ratingClicked)='ratingClicked($event)'></app-star>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *************************************** -->
+
+
+
+
+    <!-- <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <button class="btn btn-primary" (click)='toggleImage()'>
+                {{showImg ? 'Hide' : 'Show'}} Images
+              </button>
+            </th>
+            <th>Mobiles</th>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Ratings</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor='let item of filterProduct'>
+            <div class="zoom" align="center">
+              <td><img *ngIf='showImg' src={{item.imageUrl}} [title]='item.productName' [style.width.px]=50 [style.margin.px]=2> </td>
+            </div>
+            <td>{{item.productName}}</td>
+            <td>{{item.productCode}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price | &nbsp;currency:'INR':true:'1.0-1'}}</td>
+            <td><app-star [rating]='item.starRating' (ratingClicked)='ratingClicked($event)'></app-star></td>
+          </tr>
+        </tbody>
+      </table> -->
+    <!-- </div> -->
+  </div>
+</div>
+
+<!-- <div class="container" style="margin-top:100px"> 
+  <div class="row" id='div1'>
+    <div class="col m5" *ngFor='let item of filterProduct' id="MainCard">
+      <div class="card">
+        <div class="card-image">
+          <img *ngIf='showImg' src={{item.imageUrl}} [title]='item.productName' [style.width.px]=200 [style.width.px]=200 [style.margin.px]=20>
+          <span class="card-title" style="width:inherit; background: rgba(0, 0, 0, 0.5);">{{item.productName}}</span>
+        </div>
+        <div class="card-content">
+          <p>{{item.description}}</p>
+        </div>
+        <div class="card-action">
+            {{item.price | &nbsp;currency:'INR':true:'1.0-1'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!--   
+  <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red" class="fbtn" href="test.html"><i class="material-icons">home</i></a></li>
+      <li><a class="btn-floating yellow darken-1" class="fbtn" href="#"><i class="material-icons">work</i></a></li>
+      <li><a class="btn-floating green" class="fbtn" href="about.html"><i class="material-icons">account_circle</i></a></li>
+      <li><a class="btn-floating blue" class="fbtn" href="contact.html"><i class="material-icons">speaker_notes</i></a></li>
+    </ul>
+  </div>
+  <div class="clear" style="clear:both; height: 100px;">
+  </div> -->
+
+
+
+<footer class="ui-footer" style="background:#fafafa; width:100%; position:fixed; z-index:99; clear:both;">
+  <div class="container">
+    <p>&copy; Bhagyesh Joshi</p>
+  </div>
+</footer>
